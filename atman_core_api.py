@@ -2,7 +2,7 @@ import os
 from groq import Groq
 
 # 1. Connect to the Global Brain (Supreme Intelligence)
-client = Groq(api_key="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")
+client = Groq(api_key="")
 
 def generate_supreme_solution(user_problem):
     # This 'Sutra' tells the AI how to act: as a Dharmic Problem Solver

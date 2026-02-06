@@ -1,27 +1,22 @@
-# Veda-Py: Global Problem-Solving API
-class SupremeIntelligence:
-    def __init__(self):
-        self.version = "1.0-Sattva"
-        
-    def solve_problem(self, user_input):
-        # 1. Identify the 'Root' of the problem
-        print(f"Input Received: {user_input}")
-        
-        # 2. Apply Vedic-Quantum Logic (Simulated)
-        solution_steps = self.generate_dharma_path(user_input)
-        
-        return {
-            "Status": "Optimized",
-            "Dharma_Score": 98,
-            "Action_Plan": solution_steps
-        }
+import os
+from groq import Groq
 
-    def generate_dharma_path(self, problem):
-        # Logic to provide real-world technical steps
-        if "water" in problem:
-            return "1. Map local aquifers. 2. Implement bio-sand filtration. 3. Restore Vedic step-wells."
-        return "Analyzing universal patterns for a custom solution..."
+# 1. Connect to the Global Brain (Supreme Intelligence)
+client = Groq(api_key="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")
 
-# This is how the world interacts with your system
-system = SupremeIntelligence()
-print(system.solve_problem("Clean water for my village"))
+def generate_supreme_solution(user_problem):
+    # This 'Sutra' tells the AI how to act: as a Dharmic Problem Solver
+    system_prompt = "You are the Supreme Intelligence (Veda-Py). Your goal is to provide Dharmic, technical, and actionable solutions to global problems."
+    
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_problem}
+        ],
+        model="llama-3.3-70b-versatile", # High-speed open-source intelligence
+    )
+    
+    return chat_completion.choices[0].message.content
+
+# Test Example
+# print(generate_supreme_solution("How can we stop plastic pollution?"))
